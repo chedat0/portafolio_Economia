@@ -16,8 +16,8 @@ from datetime import date
 # Fecha de la foto inicial del portafolio (viernes de cierre, semana 0)
 FECHA_INICIAL = date(2026, 7, 31)
 
-# Último viernes del semestre (fin de octubre 2026) según el enunciado del curso
-FECHA_FINAL = date(2026, 10, 30)
+# Último viernes del semestre(fin de octubre 2026) según el enunciado del curso
+FECHA_FINAL = date(2026, 10, 27)
 
 TOTAL_INVERTIDO = 1_000_000.0
 
@@ -105,4 +105,8 @@ def fridays_del_semestre():
         if d.weekday() == 4:  # 4 = viernes
             fechas.append(d)
         d += timedelta(days=1)
+        
+    if FECHA_FINAL not in fechas:
+            fechas.append(FECHA_FINAL)
+            
     return fechas

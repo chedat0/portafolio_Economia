@@ -40,6 +40,55 @@ function formatPercent(val) {
   return `${sign}${Math.abs(val).toFixed(2)}%`;
 }
 
+// COMPOSICIÓN INICIAL DEL PORTAFOLIO (31/07/2026)
+const COMPOSICION_INICIAL = [
+  { nombre: "GBP/USD (Libras)", tipo: "Divisa", precio: 1.3482, decimales: 4, cantidad: "£111,259.46", inversion: 150000 },
+  { nombre: "Oro", tipo: "Commodity", precio: 4042.67, decimales: 2, cantidad: "49.47 oz", inversion: 200000 },
+  { nombre: "Plata", tipo: "Commodity", precio: 57.6569, decimales: 4, cantidad: "867.20 oz", inversion: 50000 },
+  { nombre: "Adobe", tipo: "Acción", precio: 250.41, decimales: 2, cantidad: "599 acciones", inversion: 150000 },
+  { nombre: "Coca-Cola", tipo: "Acción", precio: 87.59, decimales: 2, cantidad: "1,712.52 acciones", inversion: 150000 },
+  { nombre: "Nvidia", tipo: "Acción", precio: 200.75, decimales: 2, cantidad: "747.20 acciones", inversion: 150000 },
+  { nombre: "Johnson & Johnson", tipo: "Acción", precio: 256.35, decimales: 2, cantidad: "585.14 acciones", inversion: 150000 }
+];
+
+// Precio con los decimales exactos del registro (formatMoney solo maneja 0 o 2)
+function formatPrecio(val, dec) {
+  return "$" + val.toLocaleString("en-US", { minimumFractionDigits: dec, maximumFractionDigits: dec });
+}
+
+const ACTIVOS_4_DECIMALES = ["gbpusd", "plata"];
+function decimalesPrecio(id) {
+  return ACTIVOS_4_DECIMALES.includes(id) ? 4 : 2;
+}
+
+function renderComposicionInicial() {
+  const total = COMPOSICION_INICIAL.reduce((acc, a) => acc + a.inversion, 0);
+
+  document.getElementById("initial-composition-body").innerHTML = COMPOSICION_INICIAL.map(a => `
+    <tr>
+      <td class="col-left fw-bold">${a.nombre}</td>
+      <td class="col-left text-secondary">${a.tipo}</td>
+      <td class="col-right">${formatPrecio(a.precio, a.decimales)}</td>
+      <td class="col-right">${a.cantidad}</td>
+      <td class="col-right">${formatMoney(a.inversion)}</td>
+      <td class="col-right">${parseFloat(((a.inversion / total) * 100).toFixed(1))}%</td>
+    </tr>
+  `).join("");
+
+  document.getElementById("initial-composition-foot").innerHTML = `
+    <tr>
+      <td class="col-left" colspan="4">Total invertido</td>
+      <td class="col-right">${formatMoney(total)}</td>
+      <td class="col-right">100%</td>
+    </tr>
+  `;
+}
+
+// Enlace desde el Panel Macro hacia la tabla de composición inicial
+function irAComposicionInicial() {
+  document.getElementById("composicion-inicial").scrollIntoView({ behavior: "smooth" });
+}
+
 // GRÁFICO PORTADA
 function initLandingPieChart() {
   const ctx = document.getElementById("landing-pie-chart").getContext("2d");
@@ -91,7 +140,9 @@ function renderDashboard() {
   const ultima = semanas[n - 1];
   const penultima = n > 1 ? semanas[n - 2] : null;
 
-  document.getElementById("badge-corte").textContent = `Último cierre: ${ultima.fecha}`;
+  const esCorteFinal = state.portfolioMeta && ultima.fecha === state.portfolioMeta.fecha_final_semestre;
+  document.getElementById("badge-corte").textContent =
+    `${esCorteFinal ? "Corte final" : "Último cierre"}: ${ultima.fecha}`;
 
   // Métricas Totales vs $1,000,000
   document.getElementById("hero-value").textContent = formatMoney(ultima.valor_total_portafolio);
@@ -104,7 +155,7 @@ function renderDashboard() {
   // Variación Semanal (Última semana vs Penúltima)
   const diffSemanal = penultima ? (ultima.valor_total_portafolio - penultima.valor_total_portafolio) : 0;
   const pctSemanal = penultima ? ((diffSemanal / penultima.valor_total_portafolio) * 100) : 0;
-  
+
   document.getElementById("hero-weekly-diff").textContent = formatMoney(diffSemanal);
   const deltaWeekEl = document.getElementById("hero-delta-weekly");
   const esPositivoWeek = diffSemanal >= 0;
@@ -145,8 +196,8 @@ function renderDashboard() {
     tbodyActivos.innerHTML = state.summary.activos.map(a => `
       <tr class="clickable-row" onclick="mostrarDetalleActivo('${a.id}')">
         <td class="col-left fw-bold text-primary">${a.nombre} <small class="text-secondary d-block font-monospace">Ver evolución &rarr;</small></td>
-        <td class="col-right">${formatMoney(a.precio_inicial, 2)}</td>
-        <td class="col-right">${formatMoney(a.precio_actual, 2)}</td>
+        <td class="col-right">${formatPrecio(a.precio_inicial, decimalesPrecio(a.id))}</td>
+        <td class="col-right">${formatPrecio(a.precio_actual, decimalesPrecio(a.id))}</td>
         <td class="col-right">${a.cantidad.toLocaleString()}</td>
         <td class="col-right">${formatMoney(a.valor_actual)}</td>
         <td class="col-right ${a.ganancia_perdida_usd >= 0 ? 'value-positive' : 'value-negative'}">
@@ -244,7 +295,7 @@ function mostrarDetalleActivo(activoId) {
   tbody.innerHTML = [...serie].reverse().map(d => `
     <tr>
       <td class="col-left">${d.fecha}</td>
-      <td class="col-right">${formatMoney(d.precio, 2)}</td>
+      <td class="col-right">${formatPrecio(d.precio, decimalesPrecio(activoId))}</td>
       <td class="col-right">${formatMoney(d.valor)}</td>
       <td class="col-right ${d.ganancia >= 0 ? 'value-positive' : 'value-negative'}">${formatMoney(d.ganancia)}</td>
       <td class="col-right fw-bold ${d.rend >= 0 ? 'value-positive' : 'value-negative'}">${formatPercent(d.rend)}</td>
@@ -276,7 +327,7 @@ function inspeccionarSemana(fecha) {
     return `
       <tr>
         <td class="col-left fw-bold">${activo.nombre}</td>
-        <td class="col-right">${formatMoney(precio, 2)}</td>
+        <td class="col-right">${formatPrecio(precio, decimalesPrecio(activo.id))}</td>
         <td class="col-right">${activo.cantidad.toLocaleString()}</td>
         <td class="col-right font-monospace fw-semibold">${formatMoney(valor)}</td>
         <td class="col-right">${formatPercent(participacion)}</td>
@@ -292,6 +343,7 @@ function cerrarSnapshotSemana() {
 }
 
 window.addEventListener("DOMContentLoaded", () => {
+  renderComposicionInicial();
   initLandingPieChart();
   cargarDatos();
 });

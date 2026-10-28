@@ -51,15 +51,15 @@ body {
 .landing-tag {
   display: inline-block;
   font-family: var(--font-mono);
-  font-size: 0.8rem;
+  font-size: 1.5rem;
   text-transform: uppercase;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.20em;
   background: var(--surface);
   border: 1px solid var(--border);
   padding: 6px 14px;
   border-radius: 999px;
   font-weight: 600;
-  color: var(--text-secondary);
+  color: var(--text-primary);
 }
 
 .landing-title {
@@ -82,10 +82,10 @@ body {
 }
 
 .team-title {
-  font-size: 0.75rem;
+  font-size: 1rem;
   font-family: var(--font-mono);
   text-transform: uppercase;
-  color: var(--text-secondary);
+  color: var(--text-primary0);
   margin-bottom: 0.75rem;
 }
 
@@ -310,6 +310,34 @@ body {
 
 .border-start-sm {
   border-left: 1px solid var(--border);
+}
+
+/* COMPOSICIÓN INICIAL */
+#composicion-inicial {
+  scroll-margin-top: 150px; 
+}
+
+.link-inline {
+  background: none;
+  border: none;
+  padding: 0;
+  margin-top: 4px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--accent);
+  cursor: pointer;
+  transition: opacity var(--transition);
+}
+
+.link-inline:hover {
+  opacity: 0.7;
+}
+
+.data-table tfoot td {
+  border-top: 1px solid var(--border);
+  border-bottom: none;
+  font-weight: 700;
+  color: var(--text-primary);
 }
 
 @media (max-width: 575.98px) {
