@@ -1,0 +1,101 @@
+{
+  "fecha_corte": "2026-10-27",
+  "total_invertido": 1000000.0,
+  "valor_total_actual": 1022134.63,
+  "ganancia_perdida_total_usd": 22134.63,
+  "rendimiento_total_pct": 2.213,
+  "estado_general": "ganancia",
+  "activos": [
+    {
+      "id": "gbpusd",
+      "nombre": "GBP/USD (Libras)",
+      "tipo": "divisa",
+      "precio_inicial": 1.3482,
+      "precio_actual": 1.3345,
+      "cantidad": 111259.46,
+      "inversion_inicial": 150000.0,
+      "valor_actual": 148476.61,
+      "ganancia_perdida_usd": -1523.39,
+      "rendimiento_pct": -1.016,
+      "estado": "perdida"
+    },
+    {
+      "id": "oro",
+      "nombre": "Oro",
+      "tipo": "commodity",
+      "precio_inicial": 4042.67,
+      "precio_actual": 4074.6001,
+      "cantidad": 49.47,
+      "inversion_inicial": 200000.0,
+      "valor_actual": 201570.47,
+      "ganancia_perdida_usd": 1570.47,
+      "rendimiento_pct": 0.785,
+      "estado": "ganancia"
+    },
+    {
+      "id": "plata",
+      "nombre": "Plata",
+      "tipo": "commodity",
+      "precio_inicial": 57.6569,
+      "precio_actual": 54.293,
+      "cantidad": 867.2,
+      "inversion_inicial": 50000.0,
+      "valor_actual": 47082.89,
+      "ganancia_perdida_usd": -2917.11,
+      "rendimiento_pct": -5.834,
+      "estado": "perdida"
+    },
+    {
+      "id": "adbe",
+      "nombre": "Adobe",
+      "tipo": "accion",
+      "precio_inicial": 250.41,
+      "precio_actual": 248.36,
+      "cantidad": 599,
+      "inversion_inicial": 150000.0,
+      "valor_actual": 148767.64,
+      "ganancia_perdida_usd": -1232.36,
+      "rendimiento_pct": -0.822,
+      "estado": "perdida"
+    },
+    {
+      "id": "ko",
+      "nombre": "Coca-Cola",
+      "tipo": "accion",
+      "precio_inicial": 87.59,
+      "precio_actual": 91.18,
+      "cantidad": 1712.52,
+      "inversion_inicial": 150000.0,
+      "valor_actual": 156147.57,
+      "ganancia_perdida_usd": 6147.57,
+      "rendimiento_pct": 4.098,
+      "estado": "ganancia"
+    },
+    {
+      "id": "nvda",
+      "nombre": "Nvidia",
+      "tipo": "accion",
+      "precio_inicial": 200.75,
+      "precio_actual": 217.94,
+      "cantidad": 747.2,
+      "inversion_inicial": 150000.0,
+      "valor_actual": 162844.77,
+      "ganancia_perdida_usd": 12844.77,
+      "rendimiento_pct": 8.563,
+      "estado": "ganancia"
+    },
+    {
+      "id": "jnj",
+      "nombre": "Johnson & Johnson",
+      "tipo": "accion",
+      "precio_inicial": 256.35,
+      "precio_actual": 268.73,
+      "cantidad": 585.14,
+      "inversion_inicial": 150000.0,
+      "valor_actual": 157244.68,
+      "ganancia_perdida_usd": 7244.68,
+      "rendimiento_pct": 4.83,
+      "estado": "ganancia"
+    }
+  ]
+}

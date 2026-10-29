@@ -1,0 +1,524 @@
+{
+  "total_invertido": 1000000.0,
+  "semanas": [
+    {
+      "fecha": "2026-07-31",
+      "activos": {
+        "gbpusd": {
+          "precio": 1.3461,
+          "valor": 149765.72
+        },
+        "oro": {
+          "precio": 4107.0,
+          "valor": 203173.29
+        },
+        "plata": {
+          "precio": 57.591,
+          "valor": 49942.91
+        },
+        "adbe": {
+          "precio": 250.41,
+          "valor": 149995.59
+        },
+        "ko": {
+          "precio": 87.0704,
+          "valor": 149109.86
+        },
+        "nvda": {
+          "precio": 200.5256,
+          "valor": 149832.74
+        },
+        "jnj": {
+          "precio": 255.0919,
+          "valor": 149264.48
+        }
+      },
+      "valor_total_portafolio": 1001084.6,
+      "ganancia_perdida_usd": 1084.6,
+      "rendimiento_pct": 0.108,
+      "estado": "ganancia"
+    },
+    {
+      "fecha": "2026-08-07",
+      "activos": {
+        "gbpusd": {
+          "precio": 1.3455,
+          "valor": 149703.25
+        },
+        "oro": {
+          "precio": 4399.7002,
+          "valor": 217653.17
+        },
+        "plata": {
+          "precio": 63.332,
+          "valor": 54921.51
+        },
+        "adbe": {
+          "precio": 265.21,
+          "valor": 158860.78
+        },
+        "ko": {
+          "precio": 86.5336,
+          "valor": 148190.6
+        },
+        "nvda": {
+          "precio": 223.7097,
+          "valor": 167155.88
+        },
+        "jnj": {
+          "precio": 257.9677,
+          "valor": 150947.23
+        }
+      },
+      "valor_total_portafolio": 1047432.42,
+      "ganancia_perdida_usd": 47432.42,
+      "rendimiento_pct": 4.743,
+      "estado": "ganancia"
+    },
+    {
+      "fecha": "2026-08-14",
+      "activos": {
+        "gbpusd": {
+          "precio": 1.3491,
+          "valor": 150097.09
+        },
+        "oro": {
+          "precio": 4437.2998,
+          "valor": 219513.22
+        },
+        "plata": {
+          "precio": 64.988,
+          "valor": 56357.59
+        },
+        "adbe": {
+          "precio": 264.02,
+          "valor": 158147.97
+        },
+        "ko": {
+          "precio": 87.1897,
+          "valor": 149314.15
+        },
+        "nvda": {
+          "precio": 224.9083,
+          "valor": 168051.51
+        },
+        "jnj": {
+          "precio": 259.0723,
+          "valor": 151593.55
+        }
+      },
+      "valor_total_portafolio": 1053075.08,
+      "ganancia_perdida_usd": 53075.08,
+      "rendimiento_pct": 5.308,
+      "estado": "ganancia"
+    },
+    {
+      "fecha": "2026-08-21",
+      "activos": {
+        "gbpusd": {
+          "precio": 1.3643,
+          "valor": 151796.8
+        },
+        "oro": {
+          "precio": 4680.6001,
+          "valor": 231549.29
+        },
+        "plata": {
+          "precio": 69.466,
+          "valor": 60240.92
+        },
+        "adbe": {
+          "precio": 275.3,
+          "valor": 164904.69
+        },
+        "ko": {
+          "precio": 90.5596,
+          "valor": 155085.15
+        },
+        "nvda": {
+          "precio": 214.48,
+          "valor": 160259.46
+        },
+        "jnj": {
+          "precio": 268.9137,
+          "valor": 157352.18
+        }
+      },
+      "valor_total_portafolio": 1081188.49,
+      "ganancia_perdida_usd": 81188.49,
+      "rendimiento_pct": 8.119,
+      "estado": "ganancia"
+    },
+    {
+      "fecha": "2026-08-28",
+      "activos": {
+        "gbpusd": {
+          "precio": 1.3597,
+          "valor": 151280.78
+        },
+        "oro": {
+          "precio": 4529.8999,
+          "valor": 224094.15
+        },
+        "plata": {
+          "precio": 66.995,
+          "valor": 58098.07
+        },
+        "adbe": {
+          "precio": 291.52,
+          "valor": 174620.47
+        },
+        "ko": {
+          "precio": 89.1282,
+          "valor": 152633.77
+        },
+        "nvda": {
+          "precio": 217.3068,
+          "valor": 162371.67
+        },
+        "jnj": {
+          "precio": 268.04,
+          "valor": 156840.93
+        }
+      },
+      "valor_total_portafolio": 1079939.84,
+      "ganancia_perdida_usd": 79939.84,
+      "rendimiento_pct": 7.994,
+      "estado": "ganancia"
+    },
+    {
+      "fecha": "2026-09-04",
+      "activos": {
+        "gbpusd": {
+          "precio": 1.3532,
+          "valor": 150554.07
+        },
+        "oro": {
+          "precio": 4476.6001,
+          "valor": 221457.41
+        },
+        "plata": {
+          "precio": 66.047,
+          "valor": 57275.96
+        },
+        "adbe": {
+          "precio": 266.51,
+          "valor": 159639.5
+        },
+        "ko": {
+          "precio": 87.5476,
+          "valor": 149927.0
+        },
+        "nvda": {
+          "precio": 230.1025,
+          "valor": 171932.61
+        },
+        "jnj": {
+          "precio": 275.23,
+          "valor": 161048.09
+        }
+      },
+      "valor_total_portafolio": 1071834.62,
+      "ganancia_perdida_usd": 71834.62,
+      "rendimiento_pct": 7.183,
+      "estado": "ganancia"
+    },
+    {
+      "fecha": "2026-09-11",
+      "activos": {
+        "gbpusd": {
+          "precio": 1.3509,
+          "valor": 150303.9
+        },
+        "oro": {
+          "precio": 4408.8999,
+          "valor": 218108.28
+        },
+        "plata": {
+          "precio": 64.554,
+          "valor": 55981.23
+        },
+        "adbe": {
+          "precio": 252.23,
+          "valor": 151085.77
+        },
+        "ko": {
+          "precio": 87.7663,
+          "valor": 150301.52
+        },
+        "nvda": {
+          "precio": 218.29,
+          "valor": 163106.28
+        },
+        "jnj": {
+          "precio": 265.58,
+          "valor": 155401.47
+        }
+      },
+      "valor_total_portafolio": 1044288.46,
+      "ganancia_perdida_usd": 44288.46,
+      "rendimiento_pct": 4.429,
+      "estado": "ganancia"
+    },
+    {
+      "fecha": "2026-09-18",
+      "activos": {
+        "gbpusd": {
+          "precio": 1.3358,
+          "valor": 148620.39
+        },
+        "oro": {
+          "precio": 4424.8999,
+          "valor": 218899.8
+        },
+        "plata": {
+          "precio": 66.556,
+          "valor": 57717.36
+        },
+        "adbe": {
+          "precio": 248.92,
+          "valor": 149103.08
+        },
+        "ko": {
+          "precio": 88.25,
+          "valor": 151129.89
+        },
+        "nvda": {
+          "precio": 222.27,
+          "valor": 166080.15
+        },
+        "jnj": {
+          "precio": 269.99,
+          "valor": 157981.94
+        }
+      },
+      "valor_total_portafolio": 1049532.61,
+      "ganancia_perdida_usd": 49532.61,
+      "rendimiento_pct": 4.953,
+      "estado": "ganancia"
+    },
+    {
+      "fecha": "2026-09-25",
+      "activos": {
+        "gbpusd": {
+          "precio": 1.3211,
+          "valor": 146981.95
+        },
+        "oro": {
+          "precio": 4321.2002,
+          "valor": 213769.77
+        },
+        "plata": {
+          "precio": 64.245,
+          "valor": 55713.27
+        },
+        "adbe": {
+          "precio": 235.47,
+          "valor": 141046.53
+        },
+        "ko": {
+          "precio": 87.81,
+          "valor": 150376.38
+        },
+        "nvda": {
+          "precio": 225.07,
+          "valor": 168172.31
+        },
+        "jnj": {
+          "precio": 271.22,
+          "valor": 158701.67
+        }
+      },
+      "valor_total_portafolio": 1034761.88,
+      "ganancia_perdida_usd": 34761.88,
+      "rendimiento_pct": 3.476,
+      "estado": "ganancia"
+    },
+    {
+      "fecha": "2026-10-02",
+      "activos": {
+        "gbpusd": {
+          "precio": 1.32,
+          "valor": 146857.78
+        },
+        "oro": {
+          "precio": 4162.2998,
+          "valor": 205908.97
+        },
+        "plata": {
+          "precio": 59.977,
+          "valor": 52012.06
+        },
+        "adbe": {
+          "precio": 237.69,
+          "valor": 142376.31
+        },
+        "ko": {
+          "precio": 85.65,
+          "valor": 146677.34
+        },
+        "nvda": {
+          "precio": 233.95,
+          "valor": 174807.44
+        },
+        "jnj": {
+          "precio": 256.03,
+          "valor": 149813.39
+        }
+      },
+      "valor_total_portafolio": 1018453.29,
+      "ganancia_perdida_usd": 18453.29,
+      "rendimiento_pct": 1.845,
+      "estado": "ganancia"
+    },
+    {
+      "fecha": "2026-10-09",
+      "activos": {
+        "gbpusd": {
+          "precio": 1.3229,
+          "valor": 147186.13
+        },
+        "oro": {
+          "precio": 4216.2998,
+          "valor": 208580.35
+        },
+        "plata": {
+          "precio": 60.67,
+          "valor": 52613.02
+        },
+        "adbe": {
+          "precio": 242.27,
+          "valor": 145119.73
+        },
+        "ko": {
+          "precio": 88.05,
+          "valor": 150787.39
+        },
+        "nvda": {
+          "precio": 229.28,
+          "valor": 171318.02
+        },
+        "jnj": {
+          "precio": 261.44,
+          "valor": 152979.0
+        }
+      },
+      "valor_total_portafolio": 1028583.64,
+      "ganancia_perdida_usd": 28583.64,
+      "rendimiento_pct": 2.858,
+      "estado": "ganancia"
+    },
+    {
+      "fecha": "2026-10-16",
+      "activos": {
+        "gbpusd": {
+          "precio": 1.3273,
+          "valor": 147676.48
+        },
+        "oro": {
+          "precio": 4181.1001,
+          "valor": 206839.02
+        },
+        "plata": {
+          "precio": 56.995,
+          "valor": 49426.06
+        },
+        "adbe": {
+          "precio": 245.2,
+          "valor": 146874.8
+        },
+        "ko": {
+          "precio": 93.9,
+          "valor": 160805.63
+        },
+        "nvda": {
+          "precio": 214.13,
+          "valor": 159997.94
+        },
+        "jnj": {
+          "precio": 255.56,
+          "valor": 149538.38
+        }
+      },
+      "valor_total_portafolio": 1021158.31,
+      "ganancia_perdida_usd": 21158.31,
+      "rendimiento_pct": 2.116,
+      "estado": "ganancia"
+    },
+    {
+      "fecha": "2026-10-23",
+      "activos": {
+        "gbpusd": {
+          "precio": 1.3404,
+          "valor": 149131.37
+        },
+        "oro": {
+          "precio": 4007.8999,
+          "valor": 198270.81
+        },
+        "plata": {
+          "precio": 53.711,
+          "valor": 46578.18
+        },
+        "adbe": {
+          "precio": 263.82,
+          "valor": 158028.18
+        },
+        "ko": {
+          "precio": 92.71,
+          "valor": 158767.73
+        },
+        "nvda": {
+          "precio": 210.96,
+          "valor": 157629.32
+        },
+        "jnj": {
+          "precio": 263.81,
+          "valor": 154365.78
+        }
+      },
+      "valor_total_portafolio": 1022771.37,
+      "ganancia_perdida_usd": 22771.37,
+      "rendimiento_pct": 2.277,
+      "estado": "ganancia"
+    },
+    {
+      "fecha": "2026-10-27",
+      "activos": {
+        "gbpusd": {
+          "precio": 1.3345,
+          "valor": 148476.61
+        },
+        "oro": {
+          "precio": 4074.6001,
+          "valor": 201570.47
+        },
+        "plata": {
+          "precio": 54.293,
+          "valor": 47082.89
+        },
+        "adbe": {
+          "precio": 248.36,
+          "valor": 148767.64
+        },
+        "ko": {
+          "precio": 91.18,
+          "valor": 156147.57
+        },
+        "nvda": {
+          "precio": 217.94,
+          "valor": 162844.77
+        },
+        "jnj": {
+          "precio": 268.73,
+          "valor": 157244.68
+        }
+      },
+      "valor_total_portafolio": 1022134.63,
+      "ganancia_perdida_usd": 22134.63,
+      "rendimiento_pct": 2.213,
+      "estado": "ganancia"
+    }
+  ],
+  "errores_datos": null
+}

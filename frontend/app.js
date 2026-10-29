@@ -1,5 +1,19 @@
 const API_BASE = "http://127.0.0.1:8000";
 
+const ES_LOCAL = ["localhost", "127.0.0.1", ""].includes(window.location.hostname);
+
+async function obtenerJSON(ruta, archivo) {
+  if (ES_LOCAL) {
+    try {
+      const r = await fetch(`${API_BASE}${ruta}`);
+      if (r.ok) return await r.json();
+    } catch (e) { /* backend apagado: se usa la copia guardada */ }
+  }
+  const r = await fetch(`data/${archivo}`);
+  if (!r.ok) throw new Error(`No se pudo leer data/${archivo}`);
+  return r.json();
+}
+
 const state = {
   portfolioMeta: null,
   history: null,
@@ -116,9 +130,9 @@ function initLandingPieChart() {
 async function cargarDatos() {
   try {
     const [meta, history, summary] = await Promise.all([
-      fetch(`${API_BASE}/api/portfolio`).then(r => r.json()),
-      fetch(`${API_BASE}/api/history`).then(r => r.json()),
-      fetch(`${API_BASE}/api/summary`).then(r => r.json()).catch(() => null)
+      obtenerJSON("/api/portfolio", "portfolio.json"),
+      obtenerJSON("/api/history", "history.json"),
+      obtenerJSON("/api/summary", "summary.json").catch(() => null)
     ]);
 
     state.portfolioMeta = meta;
@@ -236,6 +250,73 @@ function renderDashboard() {
       </tr>
     `;
   }).join("");
+  renderMejorPeorActivo();
+}
+
+
+// MEJOR Y PEOR ACTIVO (por rendimiento % sobre lo invertido en cada uno)
+function tarjetaExtremo(a, etiqueta) {
+  const pos = a.rendimiento_pct >= 0;
+  const dec = (a.id === "gbpusd" || a.id === "plata") ? 4 : 2;
+  const precio = v => "$" + v.toLocaleString("en-US", { minimumFractionDigits: dec, maximumFractionDigits: dec });
+  const tipos = { accion: "Acción", divisa: "Divisa", commodity: "Commodity" };
+
+  return `
+    <div class="surface-card h-100">
+      <div class="text-secondary small fw-bold mb-2">${etiqueta}</div>
+      <div class="d-flex justify-content-between align-items-start flex-wrap gap-2 mb-3">
+        <div>
+          <h5 class="fw-bold m-0">${a.nombre}</h5>
+          <small class="text-secondary">${tipos[a.tipo] || a.tipo}</small>
+        </div>
+        <div class="delta-chip ${pos ? "is-positive" : "is-negative"}">${formatPercent(a.rendimiento_pct)}</div>
+      </div>
+      <div class="p-3 bg-light rounded border">
+        <div class="d-flex justify-content-between small text-muted mb-1">
+          <span>Ganancia / pérdida</span>
+          <span class="font-monospace fw-bold ${pos ? "value-positive" : "value-negative"}">${(pos ? "+" : "−") + formatMoney(Math.abs(a.ganancia_perdida_usd))}</span>
+        </div>
+        <div class="d-flex justify-content-between small text-muted mb-1">
+          <span>Invertido</span>
+          <span class="font-monospace fw-bold text-dark">${formatMoney(a.inversion_inicial)}</span>
+        </div>
+        <div class="d-flex justify-content-between small text-muted mb-1">
+          <span>Valor actual</span>
+          <span class="font-monospace fw-bold text-dark">${formatMoney(a.valor_actual)}</span>
+        </div>
+        <div class="d-flex justify-content-between small text-muted mb-1">
+          <span>Precio inicial</span>
+          <span class="font-monospace fw-bold text-dark">${precio(a.precio_inicial)}</span>
+        </div>
+        <div class="d-flex justify-content-between small text-muted">
+          <span>Precio actual</span>
+          <span class="font-monospace fw-bold text-dark">${precio(a.precio_actual)}</span>
+        </div>
+      </div>
+      <button type="button" class="link-inline mt-3" onclick="verEvolucionActivo('${a.id}')">Ver evolución semanal &rarr;</button>
+    </div>`;
+}
+
+function renderMejorPeorActivo() {
+  const cont = document.getElementById("extremos-activos");
+  const activos = state.summary && state.summary.activos;
+  if (!activos || activos.length < 2) { cont.style.display = "none"; return; }
+
+  const ordenados = [...activos].sort((a, b) => b.rendimiento_pct - a.rendimiento_pct);
+  const mejor = ordenados[0];
+  const peor = ordenados[ordenados.length - 1];
+
+  cont.style.display = "";
+  cont.innerHTML = `
+    <div class="col-md-6">${tarjetaExtremo(mejor, "MEJOR ACTIVO")}</div>
+    <div class="col-md-6">${tarjetaExtremo(peor, "PEOR ACTIVO")}</div>`;
+}
+
+// Salta a Portafolio Completo y abre el detalle del activo
+function verEvolucionActivo(id) {
+  document.querySelectorAll(".nav-tab")[1].click();
+  mostrarDetalleActivo(id);
+  window.scrollTo({ top: 0, behavior: "smooth" });
 }
 
 // DETALLE INDIVIDUAL DE UN ACTIVO
